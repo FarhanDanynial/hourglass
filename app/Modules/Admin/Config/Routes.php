@@ -9,8 +9,6 @@ use Modules\Admin\Controllers\AdminController;
  * @var RouteCollection $routes
  */
 
-
-
-$routes->group('admin', function($routes) {
+$routes->group('admin',['namespace' => 'App\Modules\Admin\Controllers'], function($routes) {
     $routes->get('/', [AdminController::class, 'index']);
 });

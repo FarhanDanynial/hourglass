@@ -17,9 +17,6 @@ foreach ($modules as $module) {
     }
 }
 
-$routes->get('/', function () {
-    return redirect()->to('/counter/loyalty');
-});
 
 
 
