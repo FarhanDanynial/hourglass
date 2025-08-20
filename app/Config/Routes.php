@@ -1,40 +1,26 @@
 <?php
-
-namespace Config;
-
-use CodeIgniter\Config\BaseConfig;
 use Config\Services;
+use CodeIgniter\Config\BaseConfig;
+use CodeIgniter\Router\RouteCollection;
 
-// Create a new instance of our RouteCollection class.
+/**
+ * @var RouteCollection $routes
+ */
 $routes = Services::routes();
 
-// Load the system's routing file first, so that the app and ENVIRONMENT
-// can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
-}
-
-// Default route settings
-$routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
-$routes->setTranslateURIDashes(false);
-$routes->set404Override();
-$routes->setAutoRoute(false);
-
-// ------------------------------
-// 🔹 Dynamic Module Routes Loader
-// ------------------------------
-$modulesPath = APPPATH . 'Modules/';
-$modules = scandir($modulesPath);
+$modules = ['Admin', 'Counter', 'Customer'];
 
 foreach ($modules as $module) {
-    if ($module === '.' || $module === '..') {
-        continue;
-    }
-
-    $routePath = $modulesPath . $module . '/Config/Routes.php';
-    if (is_file($routePath)) {
-        require $routePath;
+    $path = APPPATH . 'Modules/' . $module . '/Config/Routes.php';
+    if (file_exists($path)) {
+        require $path;
     }
 }
+
+$routes->get('/', function () {
+    return redirect()->to('/counter/loyalty');
+});
+
+
+
+
