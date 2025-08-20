@@ -12,6 +12,6 @@ class AdminController extends BaseController
             'description' => 'Welcome to the admin dashboard.',
         ];
 
-        return view('Modules\Booking\Views\dashboard', $data);
+        return view('App\Modules\Booking\Views\dashboard', $data);
     }
 }
