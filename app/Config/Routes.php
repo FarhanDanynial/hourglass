@@ -2,9 +2,9 @@
 
 use App\Controllers\AdminController;
 use App\Controllers\StaffController;
+use App\Controllers\CustomerController;
 use CodeIgniter\Router\RouteCollection;
-use Modules\Customer\Controllers\CustomerController;
-use Modules\Customer\Controllers\CustomerAuthController;
+use App\Controllers\CustomerAuthController;
 
 /**
  * @var RouteCollection $routes
