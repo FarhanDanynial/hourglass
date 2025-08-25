@@ -24,7 +24,7 @@ class StaffController extends BaseController
     {
         $items = $this->items_model->findAll();
         return view('Staff/pos', [
-            'items' => '$items'
+            'items' => $items
         ]);
     }
 
