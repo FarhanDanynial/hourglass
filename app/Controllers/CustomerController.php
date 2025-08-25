@@ -32,7 +32,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
         
-        return view('Customer\dashboard', $data);
+        return view('Customer/dashboard', $data);
     }
 
     public function membership()
@@ -51,7 +51,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
 
-        return view('Customer\membership', $data);
+        return view('Customer/membership', $data);
     }
 
     public function history()
@@ -70,7 +70,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
 
-        return view('Customer\history', $data);
+        return view('Customer/history', $data);
     }
 
     public function order()
@@ -89,7 +89,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
 
-        return view('Customer\order', $data);
+        return view('Customer/order', $data);
     }
 
     public function voucher()
@@ -108,7 +108,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
 
-        return view('Customer\voucher', $data);
+        return view('Customer/voucher', $data);
     }
 
     public function profile()
@@ -127,7 +127,7 @@ class CustomerController extends BaseController
             'membership_id' => $user['u_membership_id'],
         ];
 
-        return view('Customer\profile', $data);
+        return view('Customer/profile', $data);
     }
 
     public function spinWheel()
@@ -141,7 +141,7 @@ class CustomerController extends BaseController
             ['label' => 'Try Again', 'percentage' => 30],
         ];
 
-        return view('Customer\spin_wheel', ['segments' => $segments]);
+        return view('Customer/spin_wheel', ['segments' => $segments]);
     }
 
 }

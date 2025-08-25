@@ -21,12 +21,12 @@ class CustomerAuthController extends BaseController
 
     public function login()
     {
-        return view('Customer\auth\login');
+        return view('Customer/auth/login');
     }
 
     public function register()
     {
-        return view('Customer\auth\register');
+        return view('Customer/auth/register');
     }
 
     public function registerHandle()
