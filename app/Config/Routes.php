@@ -23,9 +23,6 @@ $routes->group('pos', function($routes) {
 });
 
 $routes->group('customer', function($routes) {
-    $routes->get('/', function () {
-        return redirect()->to('customer/login');
-    });
 
     $routes->get('dashboard', [CustomerController::class, 'index']);
     $routes->get('membership', [CustomerController::class, 'membership']);
