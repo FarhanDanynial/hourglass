@@ -37,7 +37,7 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = ['url'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -56,5 +56,35 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         $this->session = service('session');
+    }
+
+    // admin render
+    public function render_admin(string $view, array $data = [])
+    {
+        // View path inside app/Views/
+        $view_path = $view;
+
+        // Pass variables into the layout
+        $array = [
+            'data' => $data,
+            'view' => $view_path
+        ];
+
+        return view('admin_layout/main', $array);
+    }
+
+    // staff render
+    public function render_staff(string $view, array $data = [])
+    {
+        // View path inside app/Views/
+        $view_path = $view;
+
+        // Pass variables into the layout
+        $array = [
+            'data' => $data,
+            'view' => $view_path
+        ];
+
+        return view('staff_layout/main', $array);
     }
 }

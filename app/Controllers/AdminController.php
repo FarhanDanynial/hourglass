@@ -10,6 +10,6 @@ class AdminController extends BaseController
             'title' => 'Admin Dashboard',
             'message' => 'Welcome to the Admin Dashboard!'
         ];
-        return view('Admin/dashboard', $data);
+        return $this->render_admin('Admin/dashboard', $data);
     }
 }
