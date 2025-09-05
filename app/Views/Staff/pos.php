@@ -167,7 +167,7 @@
 
     function fetchCustomerByPhone() {
         const phone = document.getElementById('phone-input').value;
-        fetch('/pos/loyalty/checkNum/' + phone)
+        fetch('/staff/loyalty/checkNum/' + phone)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -207,7 +207,7 @@
             const code = data.codeResult.code;
             Quagga.stop();
             document.getElementById('scanner-container').style.display = 'none';
-            fetch('/pos/loyalty/checkCode/' + code)
+            fetch('/staff/loyalty/checkCode/' + code)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -227,7 +227,7 @@
 
         const formData = new FormData(this);
 
-        fetch("<?= base_url('/pos/submit') ?>", {
+        fetch("<?= base_url('/staff/submit') ?>", {
                 method: 'POST',
                 body: formData
             })
