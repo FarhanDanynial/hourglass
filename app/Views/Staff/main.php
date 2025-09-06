@@ -25,7 +25,7 @@
     }
   </style>
 </head>
-<body class="bg-light d-flex align-items-center justify-content-center min-vh-100">
+<body class="bg-light d-flex align-items-center justify-content-center">
 
   <div class="container">
     <div class="row g-4">
