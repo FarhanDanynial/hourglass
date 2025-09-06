@@ -35,7 +35,7 @@ class StaffController extends BaseController
 
     public function main()
     {
-        if (!session()->get('isLoggedIn')) {
+        if (!session()->get('isLoggedIn' && session()->get('user_type') === 'staff')) {
             return redirect()->to('/staff/login');
         }
 
