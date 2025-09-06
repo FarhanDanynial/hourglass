@@ -15,6 +15,7 @@ $routes->get('/', 'Home::index');
 $routes->group('admin', function ($routes) {
     $routes->get('/', [AdminController::class, 'index']);
     $routes->get('login', [AdminController::class, 'login']);
+    $routes->get('logout', [AdminController::class, 'logout']);
     
     $routes->get('dashboard', [AdminController::class, 'dashboard']);
     
@@ -22,15 +23,16 @@ $routes->group('admin', function ($routes) {
 
 $routes->group('auth', function ($routes) {
     $routes->post('loginHandle', [AuthController::class, 'loginHandle']);
-    $routes->get('logout', [AuthController::class, 'logout']);
 });
 
 $routes->group('staff', function($routes) {
     $routes->get('login', [StaffController::class, 'login']);
+    $routes->get('logout', [StaffController::class, 'logout']);
 
     $routes->get('main', [StaffController::class, 'main']);
 
     $routes->get('pos', [StaffController::class, 'index']);
+    $routes->get('editPos', [StaffController::class, 'editPos']);
     $routes->get('loyalty/checkCode/(:any)', [StaffController::class, 'checkCode/$1']);
     $routes->get('loyalty/checkNum/(:any)', [StaffController::class, 'checkNum/$1']);
     $routes->post('submit', [StaffController::class, 'submit']);

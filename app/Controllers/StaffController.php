@@ -25,6 +25,12 @@ class StaffController extends BaseController
         return view('Staff/auth/login');
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('staff/login');
+    }
+
     public function index()
     {
         $items = $this->items_model->findAll();
@@ -40,6 +46,15 @@ class StaffController extends BaseController
         }
 
         return view('Staff/main');
+    }
+    
+    public function editPos()
+    {
+        if (session()->get('user_type') != 'staff') {
+            return redirect()->to('/staff/login');
+        }
+
+        return view('Staff/editPos');
     }
 
     public function checkCode($code = null)

@@ -35,13 +35,13 @@
         <a href="/staff/pos" class="dashboard-square bg-primary w-100">POS</a>
       </div>
       <div class="col-12 col-md-6 col-lg-6">
-        <a href="/staff/loyalty" class="dashboard-square bg-success w-100">Loyalty</a>
+        <a href="/staff/inventory" class="dashboard-square bg-success w-100">Inventory</a>
       </div>
       <div class="col-12 col-md-6 col-lg-6">
-        <a href="/staff/history" class="dashboard-square bg-warning w-100">History</a>
+        <a href="/staff/settings" class="dashboard-square bg-warning w-100">Settings</a>
       </div>
       <div class="col-12 col-md-6 col-lg-6">
-        <a href="/staff/profile" class="dashboard-square bg-danger w-100">Profile</a>
+        <a href="/staff/editPos" class="dashboard-square bg-danger w-100">Edit POS</a>
       </div>
     </div>
   </div>

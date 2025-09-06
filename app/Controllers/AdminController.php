@@ -17,6 +17,12 @@ class AdminController extends BaseController
         return view('Admin/auth/login');
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('admin/login');
+    }
+
     public function dashboard()
     {
         if (!session()->get('isLoggedIn')) {
