@@ -62,8 +62,6 @@
           icon: 'success',
           title: 'Login Successful',
           text: data.message
-        }).then(() => {
-          window.location.href = data.redirect || '/admin/dashboard';
         });
       } else {
         Swal.fire({
