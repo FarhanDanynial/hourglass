@@ -23,8 +23,7 @@
 <body>
   <div class="card shadow-lg p-4 login-card">
     <h3 class="text-center mb-4">Admin Login</h3>
-    <form id="loginForm" action="/auth/loginHandle">
-      <?= csrf_field() ?>
+    <form id="loginForm">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
@@ -42,7 +41,7 @@
 <!-- SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- <script>
+<script>
   document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -81,7 +80,7 @@
       });
     });
   });
-</script> -->
+</script>
 
 </body>
 </html>
