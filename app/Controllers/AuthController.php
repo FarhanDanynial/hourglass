@@ -38,25 +38,28 @@ class AuthController extends BaseController
         $user = $this->auth_users_model->where('au_username', $username)->first();
 
             if ($user && password_verify($password, $user['au_password'])) {
-                if($user->au_type == 'customer'){
-                    session()->set([
-                        'id' => $user['au_id'],
-                        'username' => $user['au_username'],
-                        'user_id' => $user_id['u_id'],
-                        'isLoggedIn' => true
-                    ]);
-                    $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
-                    return redirect()->to('customer/dashboard'); // Redirect to the dashboard
-                }elseif($user->au_type == 'admin'){
-                    session()->set([
-                        'id' => $user['au_id'],
-                        'username' => $user['au_username'],
-                        'user_id' => $user_id['u_id'],
-                        'isLoggedIn' => true
-                    ]);
-                    $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
-                    return redirect()->to('admin/dashboard'); // Redirect to the dashboard
+                session()->set([
+                    'id' => $user['au_id'],
+                    'username' => $user['au_username'],
+                    'user_id' => $user_id['u_id'],
+                    'isLoggedIn' => true
+                ]);
+                
+                $redirectUrl = '';
+                if ($user['au_type'] === 'admin') {
+                    $redirectUrl = '/admin/dashboard';
+                } elseif ($user['au_type'] === 'staff') {
+                    $redirectUrl = '/staff/dashboard';
+                }elseif ($user['au_type'] === 'customer') {
+                    $redirectUrl = '/customer/dashboard';
                 }
+
+                return $this->response->setJSON([
+                    'success'  => true,
+                    'message'  => 'Login successful.',
+                    'redirect' => $redirectUrl
+                ]);
+                  
             }else{
                 return $this->response->setJSON(['success' => false, 'message' => 'Invalid credentials.']);
             }

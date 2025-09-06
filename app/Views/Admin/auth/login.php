@@ -61,7 +61,11 @@
         Swal.fire({
           icon: 'success',
           title: 'Login Successful',
-          text: data.message
+          text: data.message,
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          window.location.href = data.redirect; // 🚀 redirect to dashboard
         });
       } else {
         Swal.fire({
