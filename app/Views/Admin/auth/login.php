@@ -48,7 +48,7 @@
     const form = e.target;
     const formData = new FormData(form);
 
-    fetch('/admin/loginHandle', {
+    fetch('/auth/loginHandle', {
       method: 'POST',
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
