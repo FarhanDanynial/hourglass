@@ -39,12 +39,7 @@ class StaffController extends BaseController
             return redirect()->to('/staff/login');
         }
 
-        $data = [
-            'title' => 'Admin Dashboard',
-            'message' => 'Welcome to the Admin Dashboard!'
-        ];
-
-        return $this->render_staff('Staff/main', $data);
+        return view('Staff/main');
     }
 
     public function checkCode($code = null)
