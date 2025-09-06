@@ -35,6 +35,8 @@ class AuthController extends BaseController
             $password = trim($data['password']);
             $user_id = $this->users_model->where('u_au_id', $this->auth_users_model->where('au_username', $username)->first()['au_id'])->first();
 
+            $this->response->setJSON(['success' => true, 'message' => 'Testing success']);
+
             $user = $this->auth_users_model->where('au_username', $username)->first();
 
             if ($user && password_verify($password, $user['au_password'])) {
