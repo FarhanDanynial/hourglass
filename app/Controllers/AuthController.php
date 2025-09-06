@@ -37,6 +37,8 @@ class AuthController extends BaseController
 
             $this->response->setJSON(['success' => true, 'message' => 'Testing success']);
 
+            dd($data);
+
             $user = $this->auth_users_model->where('au_username', $username)->first();
 
             if ($user && password_verify($password, $user['au_password'])) {

@@ -23,7 +23,7 @@
 <body>
   <div class="card shadow-lg p-4 login-card">
     <h3 class="text-center mb-4">Admin Login</h3>
-    <form id="loginForm">
+    <form id="loginForm" action="/auth/loginHandle">
       <?= csrf_field() ?>
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
@@ -42,7 +42,7 @@
 <!-- SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
+<!-- <script>
   document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -81,7 +81,7 @@
       });
     });
   });
-</script>
+</script> -->
 
 </body>
 </html>
