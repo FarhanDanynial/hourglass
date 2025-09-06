@@ -27,8 +27,8 @@ $routes->group('auth', function ($routes) {
 
 $routes->group('staff', function($routes) {
     $routes->get('login', [StaffController::class, 'login']);
-    $routes->post('loginHandle', [StaffController::class, 'loginHandle']);
-    $routes->get('logout', [StaffController::class, 'logout']);
+
+    $routes->get('main', [StaffController::class, 'main']);
 
     $routes->get('pos', [StaffController::class, 'index']);
     $routes->get('loyalty/checkCode/(:any)', [StaffController::class, 'checkCode/$1']);

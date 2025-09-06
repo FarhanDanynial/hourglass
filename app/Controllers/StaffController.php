@@ -20,12 +20,26 @@ class StaffController extends BaseController
         $this->session                = service('session');
     }
 
+    public function login()
+    {
+        return view('Staff/login');
+    }
+
     public function index()
     {
         $items = $this->items_model->findAll();
         return view('Staff/pos', [
             'items' => $items
         ]);
+    }
+
+    public function main()
+    {
+        if (!session()->get('isLoggedIn')) {
+            return redirect()->to('/staff/login');
+        }
+
+        return view('Staff/main');
     }
 
     public function checkCode($code = null)

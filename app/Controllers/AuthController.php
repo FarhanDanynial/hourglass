@@ -16,15 +16,6 @@ class AuthController extends BaseController
         $this->auth_users_model        = new AuthUsersModel();
         $this->session                 = service('session');
     }
-    
-    public function login()
-    {
-        $data = [
-            'title' => 'Admin Dashboard',
-            'message' => 'Welcome to the Admin Dashboard!'
-        ];
-        return $this->render_admin('Admin/dashboard', $data);
-    }
 
     public function loginHandle()
     {
@@ -49,7 +40,7 @@ class AuthController extends BaseController
                 if ($user['au_type'] === 'admin') {
                     $redirectUrl = '/admin/dashboard';
                 } elseif ($user['au_type'] === 'staff') {
-                    $redirectUrl = '/staff/dashboard';
+                    $redirectUrl = '/staff/main';
                 }elseif ($user['au_type'] === 'customer') {
                     $redirectUrl = '/customer/dashboard';
                 }
