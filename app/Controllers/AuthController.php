@@ -28,41 +28,41 @@ class AuthController extends BaseController
 
     public function loginHandle()
     {
-        if ($this->request->isAJAX()) {
+        $data = $this->request->getPost();
+        $username = trim($data['username']);
+        $password = trim($data['password']);
+        $user_id = $this->users_model->where('u_au_id', $this->auth_users_model->where('au_username', $username)->first()['au_id'])->first();
 
-            $data = $this->request->getPost();
-            $username = trim($data['username']);
-            $password = trim($data['password']);
-            $user_id = $this->users_model->where('u_au_id', $this->auth_users_model->where('au_username', $username)->first()['au_id'])->first();
+        $this->response->setJSON(['success' => true, 'message' => 'Testing success']);
 
-            $this->response->setJSON(['success' => true, 'message' => 'Testing success']);
+        $user = $this->auth_users_model->where('au_username', $username)->first();
 
-            $user = $this->auth_users_model->where('au_username', $username)->first();
-
-            if ($user && password_verify($password, $user['au_password'])) {
-                if($user->au_type == 'customer'){
-                    session()->set([
-                        'id' => $user['au_id'],
-                        'username' => $user['au_username'],
-                        'user_id' => $user_id['u_id'],
-                        'isLoggedIn' => true
-                    ]);
-                    $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
-                    return redirect()->to('customer/dashboard'); // Redirect to the dashboard
-                }elseif($user->au_type == 'admin'){
-                    session()->set([
-                        'id' => $user['au_id'],
-                        'username' => $user['au_username'],
-                        'user_id' => $user_id['u_id'],
-                        'isLoggedIn' => true
-                    ]);
-                    $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
-                    return redirect()->to('admin/dashboard'); // Redirect to the dashboard
-                }
-            }else{
-                return $this->response->setJSON(['success' => false, 'message' => 'Invalid credentials.']);
+        if ($user && password_verify($password, $user['au_password'])) {
+            if($user->au_type == 'customer'){
+                session()->set([
+                    'id' => $user['au_id'],
+                    'username' => $user['au_username'],
+                    'user_id' => $user_id['u_id'],
+                    'isLoggedIn' => true
+                ]);
+                $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
+                return redirect()->to('customer/dashboard'); // Redirect to the dashboard
+            }elseif($user->au_type == 'admin'){
+                session()->set([
+                    'id' => $user['au_id'],
+                    'username' => $user['au_username'],
+                    'user_id' => $user_id['u_id'],
+                    'isLoggedIn' => true
+                ]);
+                $this->response->setJSON(['success' => true, 'message' => 'Login successful.']);
+                return redirect()->to('admin/dashboard'); // Redirect to the dashboard
             }
-
+        }else{
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid credentials.']);
         }
+        // if ($this->request->isAJAX()) {
+
+
+        // }
     }
 }
