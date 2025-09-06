@@ -16,7 +16,7 @@ $routes->group('admin', function ($routes) {
     $routes->get('/', [AdminController::class, 'index']);
     $routes->get('login', [AdminController::class, 'login']);
     
-    $routes->get('dasboard', [AdminController::class, 'dasboard']);
+    $routes->get('dashboard', [AdminController::class, 'dashboard']);
     
 });
 
