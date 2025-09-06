@@ -1,0 +1,153 @@
+    /* Override the select2 styles to look like form-control */
+    .select2-container .select2-selection--multiple,
+    .select2-container .select2-selection--single {
+      border-radius: .375rem;
+      /* Match form-control border radius */
+      border: 1px solid #ced4da;
+      /* Match form-control border color */
+      padding: .375rem .75rem;
+      /* Match form-control padding */
+      font-size: 1rem;
+      /* Match form-control font size */
+      height: auto;
+      /* Match form-control height */
+      background-color: #fff;
+      /* Match form-control background color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Match font-family */
+      font-weight: 400;
+      /* Match font weight */
+    }
+/* Make Select2 dropdowns look good inside Bootstrap modals */
+.select2-container--default .select2-selection--single {
+    height: 38px !important;
+    padding: 6px 12px !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 0.375rem !important;
+    background-color: #fff !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    box-shadow: none !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 24px !important;
+    padding-left: 0 !important;
+    color: #495057 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 36px !important;
+    right: 10px !important;
+}
+
+.select2-container--open .select2-dropdown {
+    z-index: 9999 !important;
+    border-radius: 0 0 0.375rem 0.375rem !important;
+    border: 1px solid #ced4da !important;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-dropdown {
+    font-size: 1rem !important;
+}
+
+.select2-results__option {
+    padding: 8px 12px !important;
+}
+
+/* Fix for select2 inside Bootstrap modal */
+.modal .select2-container {
+    z-index: 1056 !important;
+}
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered,
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 1.5;
+      /* Match form-control text alignment */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Match font-family */
+      font-weight: 400;
+      /* Match font weight */
+    }
+
+    /* Ensure the parent container is responsive */
+    .select2-container {
+      width: 100% !important;
+      /* Make the container width 100% of its parent */
+      max-width: 100%;
+      /* Prevents it from exceeding parent container's width */
+    }
+
+    .select2-container--default .select2-selection--multiple {
+      width: 100% !important;
+      /* Ensure multiple select container spans the full width */
+    }
+
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+      background-color: #e9ecef;
+      /* Match form-control option background */
+      border-radius: .375rem;
+      /* Match form-control border radius */
+      color: #495057;
+      /* Match form-control text color */
+    }
+
+    .select2-container .select2-selection__clear {
+      display: none;
+      /* Optional: hide the clear button */
+    }
+
+    .select2-container .select2-selection__arrow {
+      display: none;
+      /* Optional: hide the dropdown arrow */
+    }
+
+    /* Single selection dropdown to look like form-control */
+    .select2-container .select2-selection--single {
+      border-radius: .375rem;
+      /* Match form-control border radius */
+      border: 1px solid #ced4da;
+      /* Match form-control border color */
+      padding: .375rem .75rem;
+      /* Match form-control padding */
+      font-size: 1rem;
+      /* Match form-control font size */
+      height: auto;
+      /* Match form-control height */
+      background-color: #fff;
+      /* Match form-control background color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Match font-family */
+      font-weight: 400;
+      /* Match font weight */
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 1.5;
+      /* Match form-control text alignment */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Match font-family */
+      font-weight: 400;
+      /* Match font weight */
+    }
+
+    /* Highlight option when hovering */
+    .select2-container--default .select2-results__option:hover {
+      background-color: #f1f1f1;
+      /* Light background color on hover */
+      color: #495057;
+      /* Text color on hover */
+      cursor: pointer;
+      /* Change cursor to pointer */
+    }
+
+    /* Highlight selected option when hovering */
+    .select2-container--default .select2-results__option[aria-selected='true'] {
+      background-color: #e9ecef;
+      /* Selected option background */
+      color: #495057;
+      /* Selected option text color */
+    }

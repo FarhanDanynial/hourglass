@@ -1,0 +1,178 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --success-color: #2ecc71;
+    --border-radius: 6px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #dee2e6;
+    border-radius: var(--border-radius);
+    padding: 12px 12px;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn {
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+label {
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.section-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Progress Steps - Completely redesigned */
+.multisteps-form__progress {
+    display: flex;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.multisteps-form__progress-btn {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Circle indicators for each step */
+.multisteps-form__progress-btn .step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--medium-gray);
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 5;
+    transition: var(--transition);
+    color: var(--dark-gray);
+    font-size: 1rem;
+}
+
+.multisteps-form__progress-btn .step-text {
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 120px;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+/* Horizontal line connecting all steps */
+.multisteps-form__progress:before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--medium-gray);
+    z-index: 0;
+}
+
+.multisteps-form__progress-btn:after {
+    top: 15px !important;
+    left: calc(-50% - 5px / 2);
+}
+
+
+/* Active step styling */
+.multisteps-form__progress-btn.js-active .step-icon {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.25);
+    transform: scale(1.1);
+}
+
+.multisteps-form__progress-btn.js-active .step-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* Completed steps styling */
+.multisteps-form__progress-btn.js-completed .step-icon {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.multisteps-form__progress-btn.js-completed .step-text {
+    color: var(--success-color);
+}
+
+/* Form Panel */
+.multisteps-form__form {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
