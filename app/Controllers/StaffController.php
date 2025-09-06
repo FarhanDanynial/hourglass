@@ -22,7 +22,7 @@ class StaffController extends BaseController
 
     public function login()
     {
-        return view('Staff/login');
+        return view('Staff/auth/login');
     }
 
     public function index()
