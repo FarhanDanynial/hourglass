@@ -35,11 +35,16 @@ class StaffController extends BaseController
 
     public function main()
     {
-        if (!session()->get('isLoggedIn' && !session()->get('user_type') === 'staff')) {
+        if (!session()->get('isLoggedIn') && !session()->get('user_type') === 'staff') {
             return redirect()->to('/staff/login');
         }
 
-        return view('Staff/main');
+        $data = [
+            'title' => 'Admin Dashboard',
+            'message' => 'Welcome to the Admin Dashboard!'
+        ];
+
+        return $this->render_staff('Staff/main', $data);
     }
 
     public function checkCode($code = null)
