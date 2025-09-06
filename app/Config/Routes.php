@@ -13,6 +13,12 @@ $routes->get('/', 'Home::index');
 
 $routes->group('admin', function ($routes) {
     $routes->get('/', [AdminController::class, 'index']);
+    $routes->get('login', [AdminController::class, 'login']);
+    $routes->post('loginHandle', [AdminController::class, 'loginHandle']);
+    $routes->get('logout', [AdminController::class, 'logout']);
+    
+    $routes->get('dasboard', [AdminController::class, 'dasboard']);
+    
 });
 
 $routes->group('staff', function($routes) {
