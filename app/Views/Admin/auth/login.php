@@ -24,6 +24,7 @@
   <div class="card shadow-lg p-4 login-card">
     <h3 class="text-center mb-4">Admin Login</h3>
     <form id="loginForm">
+      <?= csrf_field() ?>
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
